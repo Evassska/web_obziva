@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obživa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      color: #000000;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 15px 20px;
+      gap: 20px;
+      z-index: 1000;
+      border-bottom: 1px solid #ccc;
+    }
+    .navbar a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .lang-btn {
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: transparent;
+      color: #666;
+      margin-left: 8px;
+    }
+    .lang-btn:hover {
+      border-color: #888;
+      color: #000;
+    }
+    .section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      scroll-margin-top: 60px;
+    }
+    #page1, #page2, #page3 { background-color: #ffffff; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    .hero-title .main {
+      display: block;
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+    .hero-title .sub {
+      display: block;
+      font-size: 1.6rem;
+    }
+    .hero-statement {
+      font-family: 'Playfair Display', serif;
+      text-align: left;
+      max-width: 640px;
+      padding: 0 20px;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 2;
+      color: #333;
+      margin-top: 1.5rem;
+    }
+    .hero-statement .line {
+      display: block;
+    }
+    .hero-statement .line.indent {
+      padding-left: 2.5rem;
+    }
+    .page2-content {
+      max-width: 680px;
+      padding: 60px 20px;
+      margin: 0 auto;
+    }
+    .page2-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+    }
+    .page2-block {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .page2-block:last-of-type {
+      border-bottom: none;
+    }
+    .page2-block h3 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0 0 0.5rem;
+      color: #111;
+    }
+    .page2-block p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+    .page2-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+    }
+    .page2-links a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2px;
+    }
+    .page2-links a:hover {
+      border-color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#page1" data-i18n="nav1">Kdo jsme</a>
+    <a href="#page2" data-i18n="nav2">Co děláme</a>
+    <a href="#page3" data-i18n="nav3">Kontakt</a>
+    <a href="https://obziva.cz/wp-login.php?redirect_to=https%3A%2F%2Fobziva.cz%2Fclenska-sekce%2F&reauth=1" data-i18n="login">Přihlášení</a>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+  </div>
+
+  <div id="page1" class="section" style="flex-direction: column; gap: 2.5rem;">
+    <div class="hero-title">
+      <span class="main" data-i18n="heroMain">Obživa</span>
+      <span class="sub" data-i18n="heroSub">spolkový bioobchod potravinami a drogerií</span>
+    </div>
+    <div class="hero-statement">
+      <span class="line" data-i18n="stmt1">Jsme komunitou provozovaný obchod v Praze</span>
+      <span class="line indent" data-i18n="stmt2">Spolupracujeme s lidmi, které osobně známe,</span>
+      <span class="line indent" data-i18n="stmt3">farmářkami, producenty, malými výrobci</span>
+      <span class="line" data-i18n="stmt4">Potraviny vám může přivézt kurýr</span>
+      <span class="line indent" data-i18n="stmt5">Nepřiveze vám ale rozhovor, doporučení,</span>
+      <span class="line indent" data-i18n="stmt6">ani člověka, který vaši mrkev vypěstoval</span>
+      <span class="line" data-i18n="stmt7">Přijďte si pro ně</span>
+    </div>
+  </div>
+
+  <div id="page2" class="section">
+    <div class="page2-content">
+      <h2 data-i18n="page2">Co děláme</h2>
+
+      <div class="page2-block">
+        <h3 data-i18n="p2h1">Vše je certifikované bio</h3>
+        <p data-i18n="p2t1">Prodáváme pouze certifikované bio produkty. Certifikace je naše jediné pevné pravidlo — znamená to, že standardy ověřuje někdo jiný než my, a vy nám nemusíte věřit jen na slovo.</p>
+      </div>
+
+      <div class="page2-block">
+        <h3 data-i18n="p2h2">Upřednostňujeme sypné a volně ložené zboží</h3>
+        <p data-i18n="p2t2">Kde to jde, volíme sypné, volně ložené a minimálně balené zboží — méně odpadu, nižší cena, víc poctivosti v tom, co vlastně kupujete. Není to ale dogma: najdete u nás třeba sýr ve vakuovém balení, protože tak vydrží čerstvý déle. Děláme praktická rozhodnutí, ne ideologická.</p>
+      </div>
+
+      <div class="page2-block">
+        <h3 data-i18n="p2h3">Hledáme nejlepší cenu v rámci těchto kritérií</h3>
+        <p data-i18n="p2t3">Aktivně hledáme nejdostupnější certifikované bio zdroje. Nižší cena je vždy cíl — pokud kvalita a certifikace obstojí.</p>
+      </div>
+
+      <div class="page2-block">
+        <h3 data-i18n="p2h4">Cenu určuje producent</h3>
+        <p data-i18n="p2t4">To, co zaplatíte na prodejně, je cena, kterou zemědělec nebo výrobce považuje za spravedlivou odměnu za svou práci. My nepřidáváme žádnou přirážku. Ani malou, ani skrytou — žádnou. Peníze jdou přímo k nim.</p>
+      </div>
+
+      <div class="page2-block">
+        <h3 data-i18n="p2h5">Fungujeme na členských poplatcích, ne na maržích</h3>
+        <p data-i18n="p2t5">Náklady spolku — koordinace, prostor, logistika — jsou hrazeny z měsíčních členských příspěvků, nikoli z přirážky ke zboží. Nemáme tedy žádný finanční důvod navádět vás k dražším produktům. Nejsme obchod, který se vám snaží něco prodat. Jsme skupina lidí, kteří se chtějí dobře najíst — společně.</p>
+      </div>
+
+      <div class="page2-links">
+        <a href="bylaws.html" data-i18n="linkBylaws">Stanovy</a>
+        <a href="faq.html" data-i18n="linkFaq">FAQ</a>
+      </div>
+    </div>
+  </div>
+  <div id="page3" class="section" data-i18n="page3">Kontakt</div>
+
+  <script>
+    // ------------------------------------
+    // All your text strings live here.
+    // To add more: copy a line and add
+    // the same key in both 'cs' and 'en'.
+    // ------------------------------------
+    const translations = {
+      cz: {
+        nav1:     'Kdo jsme',
+        nav2:     'Co děláme',
+        nav3:     'Kontakt',
+        heroMain: 'Obživa',
+        heroSub:  'spolkový bioobchod potravinami a drogerií',
+        stmt1:    'Jsme komunitou provozovaný obchod v Praze',
+        stmt2:    'Spolupracujeme s lidmi, které osobně známe,',
+        stmt3:    'farmářkami, producenty, malými výrobci',
+        stmt4:    'Potraviny vám může přivézt kurýr',
+        stmt5:    'Nepřiveze vám ale rozhovor, doporučení',
+        stmt6:    'ani člověka, který vaši mrkev vypěstoval',
+        stmt7:    'Přijďte si pro ně',
+        page2:    'Co děláme',
+        p2h1:     'Vše je certifikované bio',
+        p2t1:     'Prodáváme pouze certifikované bio produkty. Certifikace je naše jediné pevné pravidlo — znamená to, že standardy ověřuje někdo jiný než my, a vy nám nemusíte věřit jen na slovo.',
+        p2h2:     'Upřednostňujeme sypné a volně ložené zboží',
+        p2t2:     'Kde to jde, volíme sypné, volně ložené a minimálně balené zboží — méně odpadu, nižší cena, víc poctivosti v tom, co vlastně kupujete. Není to ale dogma: najdete u nás třeba sýr ve vakuovém balení, protože tak vydrží čerstvý déle. Děláme praktická rozhodnutí, ne ideologická.',
+        p2h3:     'Hledáme nejlepší cenu v rámci těchto kritérií',
+        p2t3:     'Aktivně hledáme nejdostupnější certifikované bio zdroje. Nižší cena je vždy cíl — pokud kvalita a certifikace obstojí.',
+        p2h4:     'Cenu určuje producent',
+        p2t4:     'To, co zaplatíte na prodejně, je cena, kterou zemědělec nebo výrobce považuje za spravedlivou odměnu za svou práci. My nepřidáváme žádnou přirážku. Ani malou, ani skrytou — žádnou. Peníze jdou přímo k nim.',
+        p2h5:     'Fungujeme na členských poplatcích, ne na maržích',
+        p2t5:     'Náklady spolku — koordinace, prostor, logistika — jsou hrazeny z měsíčních členských příspěvků, nikoli z přirážky ke zboží. Nemáme tedy žádný finanční důvod navádět vás k dražším produktům. Nejsme obchod, který se vám snaží něco prodat. Jsme skupina lidí, kteří se chtějí dobře najíst — společně.',
+        linkBylaws: 'Stanovy',
+        linkFaq:    'FAQ',
+        login:      'Přihlášení',
+        page3:    'Kontakt',
+      },
+      en: {
+        nav1:     'Who we are',
+        nav2:     'What we do',
+        nav3:     'Contact',
+        heroMain: 'Obživa',
+        heroSub:  'a members\' shop for organic food and everyday essentials',
+        stmt1:    'We are a member-run shop in Prague',
+        stmt2:    'We work with people we know personally,',
+        stmt3:    'farmers, producers, small makers',
+        stmt4:    'Groceries can be delivered to your door',
+        stmt5:    'They can\'t deliver a conversation, a recommendation,',
+        stmt6:    'or the person who grew your carrots',
+        stmt7:    'Come find those here',
+        page2:    'What we do',
+        p2h1:     'Everything is certified organic',
+        p2t1:     'We stock only certified organic and bio products. Certification is our one non-negotiable — it means the standards are verified by someone other than us, and you don\'t have to take our word for it.',
+        p2h2:     'We favour bulk and loose goods',
+        p2t2:     'Where we can, we choose bulk, loose, and minimally packaged goods — less waste, lower cost, more honest about what you\'re actually buying. That said, it\'s not a dogma: you\'ll find cheese in vacuum packaging, because that\'s what keeps it fresh. We make practical choices, not ideological ones.',
+        p2h3:     'We aim for the best possible price within those criteria',
+        p2t3:     'We actively look for the most affordable certified organic sources. Lower price is always a goal, as long as the quality and certification hold.',
+        p2h4:     'The price is set by the producer',
+        p2t4:     'What you pay at the shelf is what the farmer or producer says is a fair price for their work. We don\'t add a margin. Not a small one, not a hidden one — none. The money goes to them.',
+        p2h5:     'We run on membership fees, not markups',
+        p2t5:     'The shop\'s costs — coordination, space, logistics — are covered by monthly membership fees, not by marking up the goods. This means we have no financial incentive to steer you toward anything. We\'re not a shop trying to sell you things. We\'re a group of people trying to eat well together.',
+        linkBylaws: 'Bylaws',
+        linkFaq:    'FAQ',
+        login:      'Log in',
+        page3:    'Contact',
+      }
+    };
+
+    // ------------------------------------
+    // Tracks which language is active.
+    // The button always shows the OTHER
+    // language — click it to switch.
+    // ------------------------------------
+    var currentLang = 'cz';
+
+    function toggleLang() {
+      currentLang = currentLang === 'cz' ? 'en' : 'cz';
+      const t = translations[currentLang];
+
+      // Swap all translatable elements
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+
+      // Update the <html lang="..."> attribute (good for accessibility)
+      document.documentElement.lang = currentLang === 'cz' ? 'cs' : 'en';
+
+      // Button shows the OTHER language (what you'd switch to next)
+      document.getElementById('lang-btn').textContent = currentLang === 'cz' ? 'EN' : 'CZ';
+    }
+  </script>
+
+</body>
+</html>
