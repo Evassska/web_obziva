@@ -118,6 +118,75 @@
       line-height: 1.8;
       color: #444;
     }
+    .fee-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .fee-card {
+      background: var(--color-background-primary, #fff);
+      border: 0.5px solid #ddd;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .fee-card .label {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .fee-card .amount {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 0 0 4px;
+    }
+    .fee-card .sublabel {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+    }
+    .fee-divider {
+      width: 0.5px;
+      height: 40px;
+      background: #ddd;
+      align-self: center;
+    }
+    .fee-monthly {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .fee-solidarity {
+      border: 0.5px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .fee-solidarity p {
+      margin: 0;
+    }
+    .fee-solidarity .sol-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px !important;
+    }
+    .fee-solidarity .sol-body {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .fee-note {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+    }
     .page2-links {
       display: flex;
       gap: 16px;
@@ -191,6 +260,36 @@
         <p data-i18n="p2t5">Náklady spolku — koordinace, prostor, logistika — jsou hrazeny z měsíčních příspěvků, nikoli z přirážky ke zboží. Nemáme tedy žádnou motivaci navádět vás k dražším produktům. Nejsme obchod, jsme skupina lidí, kteří se chtějí dobře najíst — společně.</p>
       </div>
 
+      <div class="fee-cards">
+        <div class="fee-card">
+          <p class="label" data-i18n="feeRegLabel">Vstupní příspěvek</p>
+          <p class="amount" data-i18n="feeRegAmount">2 400 Kč</p>
+          <p class="sublabel" data-i18n="feeRegSub">jednorázově při vstupu</p>
+        </div>
+        <div class="fee-card">
+          <p class="label" data-i18n="feeMonLabel">Měsíční příspěvek</p>
+          <div class="fee-monthly">
+            <div>
+              <p class="amount" data-i18n="feeMonInd">350 Kč</p>
+              <p class="sublabel" data-i18n="feeMonIndLabel">jednotlivec</p>
+            </div>
+            <div class="fee-divider"></div>
+            <div>
+              <p class="amount" data-i18n="feeMonFam">550 Kč</p>
+              <p class="sublabel" data-i18n="feeMonFamLabel">domácnost</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fee-solidarity">
+        <span style="font-size:16px;color:#555;margin-top:3px;flex-shrink:0;" aria-hidden="true">♥</span>
+        <div>
+          <p class="sol-title" data-i18n="feeSolTitle">Solidární příspěvek 150 Kč / měsíc</p>
+          <p class="sol-body" data-i18n="feeSolBody">Pokud si to aktuálně nemůžeš dovolit, existuje solidární sazba — stačí nás kontaktovat.</p>
+        </div>
+      </div>
+      <p class="fee-note" data-i18n="feeInstalment">Vstupní příspěvek lze na požádání rozložit do splátek.</p>
+
       <div class="page2-links">
         <a href="bylaws.html" data-i18n="linkBylaws">Stanovy</a>
         <a href="faq.html" data-i18n="linkFaq">FAQ</a>
@@ -230,6 +329,17 @@
         p2t4:     'To, co zaplatíte na prodejně, je cena, kterou zemědělec nebo výrobce považuje za spravedlivou odměnu za svou práci. My nepřidáváme žádnou přirážku. Ani malou, ani skrytou, žádnou. Peníze od vás jdou rovnou k nim.',
         p2h5:     'Živí nás členské příspěvky, ne marže',
         p2t5:     'Náklady spolku — koordinace, prostor, logistika — jsou hrazeny z měsíčních příspěvků, nikoli z přirážky ke zboží. Nemáme tedy žádnou motivaci navádět vás k dražším produktům. Nejsme obchod, jsme skupina lidí, kteří se chtějí dobře najíst — společně.',
+        feeRegLabel:    'Vstupní příspěvek',
+        feeRegAmount:   '2 400 Kč',
+        feeRegSub:      'jednorázově při vstupu',
+        feeMonLabel:    'Měsíční příspěvek',
+        feeMonInd:      '350 Kč',
+        feeMonIndLabel: 'jednotlivec',
+        feeMonFam:      '550 Kč',
+        feeMonFamLabel: 'domácnost',
+        feeSolTitle:    'Solidární příspěvek 150 Kč / měsíc',
+        feeSolBody:     'Pokud si to aktuálně nemůžeš dovolit, existuje solidární sazba — stačí nás kontaktovat.',
+        feeInstalment:  'Vstupní příspěvek lze na požádání rozložit do splátek.',
         linkBylaws: 'Stanovy',
         linkFaq:    'FAQ',
         login:      'Přihlášení',
@@ -259,6 +369,17 @@
         p2t4:     'What you pay at the shelf is what the farmer or producer says is a fair price for their work. We don\'t add a margin. Not a small one, not a hidden one — none. The money goes to them.',
         p2h5:     'We run on membership fees, not markups',
         p2t5:     'The shop\'s costs — coordination, space, logistics — are covered by monthly membership fees, not by marking up the goods. This means we have no financial incentive to steer you toward anything. We\'re not a shop trying to sell you things. We\'re a group of people trying to eat well together.',
+        feeRegLabel:    'Registration fee',
+        feeRegAmount:   '2 400 Kč',
+        feeRegSub:      'one-time on joining',
+        feeMonLabel:    'Monthly fee',
+        feeMonInd:      '350 Kč',
+        feeMonIndLabel: 'individual',
+        feeMonFam:      '550 Kč',
+        feeMonFamLabel: 'household',
+        feeSolTitle:    'Solidarity fee 150 Kč / month',
+        feeSolBody:     'If you can\'t afford it right now, a solidarity rate is available — just get in touch.',
+        feeInstalment:  'The registration fee can be paid in instalments on request.',
         linkBylaws: 'Bylaws',
         linkFaq:    'FAQ',
         login:      'Log in',
