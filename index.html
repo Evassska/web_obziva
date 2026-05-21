@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Obživa</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
@@ -203,6 +204,148 @@
     .page2-links a:hover {
       border-color: #000;
     }
+    .contact-cta {
+      background: var(--color-background-primary, #fff);
+      border: 0.5px solid #ddd;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .contact-cta-label {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .contact-cta-body {
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+    .contact-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      border: 0.5px solid #ccc;
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-decoration: none;
+    }
+    .contact-cta-btn:hover {
+      border-color: #888;
+    }
+    .contact-cta-reg {
+      font-size: 13px;
+      color: #555;
+      margin: 1rem 0 0;
+    }
+    .contact-cta-reg a {
+      color: #555;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .contact-card {
+      background: var(--color-background-primary, #fff);
+      border: 0.5px solid #ddd;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .contact-card-label {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .contact-addr {
+      font-size: 13px;
+      color: #555;
+      margin: 0 0 4px;
+    }
+    .hours-table {
+      width: 100%;
+      font-size: 14px;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .hours-table td:last-child {
+      text-align: right;
+    }
+    .hours-table td {
+      padding: 3px 0;
+      color: #333;
+    }
+    .hours-table td:first-child {
+      color: #555;
+    }
+    .contact-phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      color: #555;
+    }
+    .contact-phone a {
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+    }
+    .contact-email {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .contact-email a {
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      display: block;
+    }
+    .contact-email p {
+      font-size: 12px;
+      color: #555;
+      margin: 0;
+    }
+    .contact-legal {
+      border-top: 0.5px solid #eee;
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+    .contact-legal p {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 2px;
+    }
+    .contact-socials {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .contact-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 0.5px solid #ddd;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #555;
+    }
+    .contact-socials a:hover {
+      border-color: #888;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -282,7 +425,7 @@
         </div>
       </div>
       <div class="fee-solidarity">
-        <span style="font-size:16px;color:#555;margin-top:3px;flex-shrink:0;" aria-hidden="true">♥</span>
+        <i class="ti ti-heart" style="font-size:18px;color:#555;margin-top:2px;flex-shrink:0;" aria-hidden="true"></i>
         <div>
           <p class="sol-title" data-i18n="feeSolTitle">Solidární příspěvek 150 Kč / měsíc</p>
           <p class="sol-body" data-i18n="feeSolBody">Pokud si to aktuálně nemůžeš dovolit, existuje solidární sazba — stačí nás kontaktovat.</p>
@@ -296,7 +439,78 @@
       </div>
     </div>
   </div>
-  <div id="page3" class="section" data-i18n="page3">Kontakt</div>
+  <div id="page3" class="section">
+    <div class="page2-content">
+      <h2 data-i18n="page3">Kontakt</h2>
+
+      <div class="contact-cta">
+        <p class="contact-cta-label" data-i18n="ctaLabel">Zajímá vás členství?</p>
+        <p class="contact-cta-body" data-i18n="ctaBody">Nejlepší způsob, jak si Obživu nezávazně vyzkoušet, je přijít na prohlídku s naším průvodcem. Zarezervujte si termín zde:</p>
+        <a href="https://pruvodce.obziva.cz/" class="contact-cta-btn">
+          <i class="ti ti-calendar" style="font-size:16px;" aria-hidden="true"></i>
+          <span data-i18n="ctaBtn">Rezervovat termín prohlídky</span>
+        </a>
+        <p class="contact-cta-reg">
+          <span data-i18n="ctaRegPre">Nebo přejděte rovnou k</span>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSclhpqfu-3JIP9ZG7VQcMz8Cq1_1BJyie3z1zlLtpu5fGlEaA/viewform" data-i18n="ctaRegLink">registračnímu formuláři</a>.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <p class="contact-card-label" data-i18n="hoursLabel">Otevírací doba</p>
+          <p class="contact-addr" data-i18n="hoursAddr1">Za Poříčskou branou 7</p>
+          <p class="contact-addr" data-i18n="hoursAddr2">Praha 8 – Karlín</p>
+          <table class="hours-table">
+            <tr><td data-i18n="hoursDays1">Po – Čt</td><td>10:00 – 19:00</td></tr>
+            <tr><td data-i18n="hoursDays2">Pá</td><td>16:00 – 19:00</td></tr>
+          </table>
+          <div class="contact-phone">
+            <i class="ti ti-phone" style="font-size:15px;" aria-hidden="true"></i>
+            <a href="tel:+420735526360" data-i18n="phone">735 526 360</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card-label" data-i18n="contactLabel">Kontakt</p>
+          <div class="contact-email">
+            <i class="ti ti-mail" style="font-size:15px;flex-shrink:0;" aria-hidden="true"></i>
+            <div>
+              <a href="mailto:spolek@obziva.cz">spolek@obziva.cz</a>
+              <p data-i18n="emailGeneral">obecné dotazy</p>
+            </div>
+          </div>
+          <div class="contact-email">
+            <i class="ti ti-mail" style="font-size:15px;flex-shrink:0;" aria-hidden="true"></i>
+            <div>
+              <a href="mailto:obchod@obziva.cz">obchod@obziva.cz</a>
+              <p data-i18n="emailSuppliers">pro dodavatele</p>
+            </div>
+          </div>
+          <div class="contact-legal">
+            <p>Spolek živá Obživa</p>
+            <p data-i18n="ico">IČO: 05832187</p>
+            <p>České Kopisty 5, 412 01 Terezín</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="contact-socials">
+        <a href="https://www.facebook.com/obchodobZIVA/" aria-label="Facebook">
+          <i class="ti ti-brand-facebook" style="font-size:18px;" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/zivaobziva" aria-label="Instagram">
+          <i class="ti ti-brand-instagram" style="font-size:18px;" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.youtube.com/@spolekzivaobziva7660" aria-label="YouTube">
+          <i class="ti ti-brand-youtube" style="font-size:18px;" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
 
   <script>
     // ------------------------------------
@@ -343,7 +557,22 @@
         linkBylaws: 'Stanovy',
         linkFaq:    'FAQ',
         login:      'Přihlášení',
-        page3:    'Kontakt',
+        page3:      'Kontakt',
+        ctaLabel:   'Zajímá vás členství?',
+        ctaBody:    'Nejlepší způsob, jak si Obživu nezávazně vyzkoušet, je přijít na prohlídku s naším průvodcem. Zarezervujte si termín zde:',
+        ctaBtn:     'Rezervovat termín prohlídky',
+        ctaRegPre:  'Nebo přejděte rovnou k',
+        ctaRegLink: 'registračnímu formuláři',
+        hoursLabel: 'Otevírací doba',
+        hoursAddr1: 'Za Poříčskou branou 7',
+        hoursAddr2: 'Praha 8 – Karlín',
+        hoursDays1: 'Po – Čt',
+        hoursDays2: 'Pá',
+        phone:      '735 526 360',
+        contactLabel:   'Kontakt',
+        emailGeneral:   'obecné dotazy',
+        emailSuppliers: 'pro dodavatele',
+        ico:        'IČO: 05832187',
       },
       en: {
         nav1:     'Who we are',
@@ -383,7 +612,22 @@
         linkBylaws: 'Bylaws',
         linkFaq:    'FAQ',
         login:      'Log in',
-        page3:    'Contact',
+        page3:      'Contact',
+        ctaLabel:   'Interested in joining?',
+        ctaBody:    'The best way to get a feel for Obživa without any commitment is to come on a guided tour of the shop. Book a time slot here:',
+        ctaBtn:     'Book a guided tour',
+        ctaRegPre:  'Or go straight to the',
+        ctaRegLink: 'registration form',
+        hoursLabel: 'Opening hours',
+        hoursAddr1: 'Za Poříčskou branou 7',
+        hoursAddr2: 'Prague 8 – Karlín',
+        hoursDays1: 'Mon – Thu',
+        hoursDays2: 'Fri',
+        phone:      '735 526 360',
+        contactLabel:   'Contact',
+        emailGeneral:   'general enquiries',
+        emailSuppliers: 'for suppliers',
+        ico:        'ID: 05832187',
       }
     };
 
