@@ -265,10 +265,17 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
-    .contact-addr {
+    .contact-map-link {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 6px;
       font-size: 13px;
       color: #555;
-      margin: 0 0 4px;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+    .contact-map-link:hover {
+      color: #333;
     }
     .hours-table {
       width: 100%;
@@ -460,8 +467,13 @@
 
         <div class="contact-card">
           <p class="contact-card-label" data-i18n="hoursLabel">Otevírací doba</p>
-          <p class="contact-addr" data-i18n="hoursAddr1">Za Poříčskou branou 7</p>
-          <p class="contact-addr" data-i18n="hoursAddr2">Praha 8 – Karlín</p>
+          <a href="https://mapy.com/cs/turisticka?source=addr&id=8991055&x=14.4401875&y=50.0907301&z=17" class="contact-map-link" target="_blank" rel="noopener">
+            <i class="ti ti-map-pin" style="font-size:15px;flex-shrink:0;" aria-hidden="true"></i>
+            <span>
+              <span data-i18n="hoursAddr1">Za Poříčskou branou 7</span><br>
+              <span data-i18n="hoursAddr2">Praha 8 – Karlín</span>
+            </span>
+          </a>
           <table class="hours-table">
             <tr><td data-i18n="hoursDays1">Po – Čt</td><td>10:00 – 19:00</td></tr>
             <tr><td data-i18n="hoursDays2">Pá</td><td>16:00 – 19:00</td></tr>
